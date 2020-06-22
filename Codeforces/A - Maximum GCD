@@ -1,0 +1,23 @@
+import java.util.*;
+public class Gcd{
+    
+    
+    
+     public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        for(int z=0;z<n;z++)
+        {
+        int x=sc.nextInt();
+        int ma=1;
+        if(x%2==0)
+        {
+             System.out.println(x/2);
+        }
+        else
+       {
+          x=x-1;
+         
+        System.out.println(x/2);
+     }}}
+}
