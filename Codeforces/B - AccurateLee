@@ -1,0 +1,33 @@
+import java.util.*;
+public class B_AccurateLee{
+ 
+     public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int v=sc.nextInt();
+        for(int z=0;z<v;z++)
+        {
+            int len=sc.nextInt();
+            String str=sc.next();
+            int one=100001;
+           int zero=-1;
+            for(int i=0;i<len;i++)
+            {
+                 if(str.charAt(i)=='0')
+                    zero=Math.max(zero,i);
+                else
+                   one=Math.min(one,i);
+            }
+            if(one>zero)
+            System.out.println(str);
+            else
+           {
+	for(int j=0;j<=one;j++)
+                             System.out.print("0");
+                       for(int j=zero+1;j<len;j++)
+                            System.out.print(str.charAt(j));
+	System.out.println();
+           }
+          
+        }
+     }
+ 
