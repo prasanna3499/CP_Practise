@@ -1,0 +1,43 @@
+import java.util.*;
+public class C_RationalLee
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int v=sc.nextInt();
+		for(int z=0;z<v;z++)
+		{
+		    int n=sc.nextInt();
+		    int k=sc.nextInt();
+		    ArrayList<Integer> a1=new ArrayList<Integer>();
+		    Integer a2[]=new Integer[k];
+		    int one=0;
+		    for(int i=0;i<n;i++)
+		       a1.add(sc.nextInt());
+		      
+		       for(int i=0;i<k;i++){
+		       a2[i]=sc.nextInt();
+		       if(a2[i]==1)
+	 	       one++;}
+		    Collections.sort(a1, Collections.reverseOrder());
+		     Arrays.sort(a2, Collections.reverseOrder()); 
+		    long tot=0;
+                                                 
+		    for(int i=0;i<one;i++)
+			tot+=2*a1.get(i);
+		   int ind1=one,ind2=a1.size()-1;
+		    for(int i=0;i<k-one;i++)
+		    {
+		  
+		          long sum=0;
+		          int Max=a1.get(ind1);
+		          int Min=a1.get(ind2);
+		          ind2-=a2[i]-1;
+		           sum=Min+Max;
+              ind1++;                   
+		       tot+=sum;
+		       
+		    }
+		    System.out.println(tot);
+		}
+	}
+}
