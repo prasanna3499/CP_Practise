@@ -1,0 +1,56 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc=new Scanner(System.in);
+		int v=sc.nextInt();
+		for(int z=0;z<v;z++)
+		{
+		    int len=sc.nextInt();
+		    int ma=0;
+		    
+		    Map<Integer,Integer> m=new HashMap<Integer,Integer>();
+		    TreeSet<Integer> t=new TreeSet<Integer>();  
+		    ArrayList<Integer> a=new ArrayList<Integer>();
+		    for(int i=0;i<len;i++){
+		        int x=sc.nextInt();
+		        t.add(x);
+		        if(ma<x)
+		          ma=x;
+		      m.put(x,m.getOrDefault(x,0)+1);
+		    }
+		    int b=1;
+		    for(int j:m.keySet())
+		    {
+		        if(m.get(j)==2)
+		        {
+		         a.add(j);
+		         if(j==ma)
+		           b=0;
+		        }
+		        if(m.get(j)>2)
+		         b=0;
+		    }
+		    Collections.sort(a,Collections. reverseOrder());
+		   Integer[] arr =t.toArray( new Integer[t.size()] );
+		    if(b!=0)
+		    {
+		         System.out.println("YES");
+		        for(int i=0;i<t.size();i++)
+		           System.out.print(arr[i]+" ");
+		         for(int k=0;k<a.size();k++)
+		            System.out.print(a.get(k)+" ");
+		          System.out.println();
+		    }
+		    else
+		       System.out.println("NO");
+		}
+	}
+}
