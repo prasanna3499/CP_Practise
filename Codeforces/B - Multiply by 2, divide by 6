@@ -1,0 +1,43 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+ 
+/* Name of the class has to be "Main" only if the class is public. */
+public class B_Multiplyby2divideby6
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc=new Scanner(System.in);
+		int v=sc.nextInt();
+		for(int z=0;z<v;z++)
+		{
+		    
+		  int x=sc.nextInt();
+		  int temp=x;
+		  int count=0;
+		  int br=0;
+		  while(temp>1)
+		  {
+		      if(temp%6==0)
+		      {
+		          int d=temp/6;
+		          temp=d;
+		          count++;		         
+		      }
+		      else if(temp%3==0)
+		      {
+		          temp=temp+temp;
+		          count++;
+		      }
+		      else{
+		          br=1;
+		        break;}
+		  }
+		  if(br==1)
+		     System.out.println("-1");
+		     else
+		      System.out.println(count);
+		}
+	}
+}
