@@ -1,0 +1,40 @@
+import java.util.*;
+public class A_DonutShops{
+ 
+     public static void main(String []args){
+       Scanner sc=new Scanner(System.in);
+       int v=sc.nextInt();
+       for(int z=0;z<v;z++)
+       {
+           long cs1=sc.nextLong();
+           long box=sc.nextLong();
+           long cs2=sc.nextLong();
+           if(cs1>=cs2)
+           {
+            if(cs1>cs2)
+             System.out.println("-1 1");
+           else
+	System.out.println("-1 "+box);
+            }
+           else if(cs1*box<=cs2)
+           {
+                        System.out.println("1 -1");                
+           }
+          else{
+               long count=0;     
+               long d=1;
+            long  cost2=cs2;
+            long cost1=cs1;
+               while(cost1<cost2)
+               {
+                   if(count>0 && count%box==0){
+                      cost2+=cs2;d++;}
+     
+                    cost1+=cs1;
+                    count++;
+               }
+                 System.out.println("1 "+(d*box));
+            }
+       }
+     }
+}
