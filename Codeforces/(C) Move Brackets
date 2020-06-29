@@ -1,0 +1,35 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+ 
+public class C_MoveBrackets
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+ 
+		Scanner sc=new Scanner(System.in);
+		int v=sc.nextInt();
+		for(int z=0;z<v;z++)
+		{
+		  
+		 int len=sc.nextInt();
+		 String str=sc.next();
+	
+		 
+		while(str.contains("()"))
+		 {
+		     int ind=str.indexOf("()");
+		    if(str.length()==2)
+ 
+			{
+			   str="1";
+			   break;
+		                  }
+		     str=str.substring(0,ind)+str.substring(ind+2);
+		   
+			
+		     
+		 }
+		  System.out.println(str.length()/2);
+		}               
+	}}
