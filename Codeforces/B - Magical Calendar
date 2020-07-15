@@ -1,0 +1,26 @@
+import java.util.*;
+public class B_MagicalCalendar{
+ 
+     public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int v=sc.nextInt();
+        for(int z=0;z<v;z++)
+        {
+            long a=sc.nextLong();
+            long b=sc.nextLong();
+            long count=0;
+            if(a<=b)
+            {
+                a=a-1;
+                count=(a*(a+1))/2;
+                count++;
+            }
+            else
+            {
+                count=(b*(b+1))/2;
+            }
+            System.out.println(count);
+        }
+        
+     }
+}
