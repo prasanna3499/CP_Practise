@@ -1,0 +1,51 @@
+import java.util.*;
+public class B_NeighborGrid{
+ 
+     public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int z=0;z<t;z++)
+        {
+           int n=sc.nextInt();
+           int m=sc.nextInt();
+          
+           int br=0;
+           for(int i=0;i<n;i++)
+           {
+               for(int j=0;j<m;j++)
+               {
+                   long a=sc.nextLong();
+                   if((i==0||j==0||i==n-1||j==m-1) && a>3)
+                     br=1;
+                   if((i+j==0||i==0 &&j==m-1||i==n-1&&j==0||i+j==m+n-2)&& a>2)
+                     br=1;
+                   if(a>4)
+                        br=1;
+               }
+           }
+           if(br==1)
+             System.out.println("NO");
+            else
+            {
+                System.out.println("YES");
+                for(int i=0;i<n;i++)
+                {
+                    for(int j=0;j<m;j++)
+                    {
+                        if(i==0||j==0||i==n-1||j==m-1) 
+                          {
+                              if(i+j==0||i==0 &&j==m-1||i==n-1&&j==0||i+j==m+n-2)
+                                System.out.print("2 ");
+                               else
+                                System.out.print("3 ");
+                          }
+                          else
+                          System.out.print("4 ");
+           
+                    }
+                    System.out.println();
+                }
+            }
+        }
+     }
+}
