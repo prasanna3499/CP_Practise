@@ -1,0 +1,60 @@
+
+import java.util.*;
+public class B_DubiousCyrpto
+{
+		public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		for(int z=0;z<t;z++)
+		{
+		    long l=sc.nextLong();
+		    long r=sc.nextLong();
+		    long m=sc.nextLong();
+		    long range=r-l;
+		    if(m<=l)
+		    {
+		        long div=l-m;
+		        
+		                  System.out.print(l);
+		                   System.out.print(" "+l);
+		                   System.out.print(" "+(l+div));
+		                   System.out.println();
+		    }
+		    else
+		    {
+		    for(long i=l;i<=r;i++)
+		    {
+		         long div=m%i;
+		         if(range>=div && l<=m)
+		         {
+		             System.out.print(i);
+		             System.out.print(" "+(l+div));
+		             System.out.print(" "+l);
+		             System.out.println();
+		            
+		             break;
+		         }
+		          else if(range<=div)
+		           {
+		               long hi=(m/i)+1;
+		               long ch=(i*hi)-m;
+		                if(ch<=range)
+		                {
+		                  
+		                  System.out.print(i);
+		                   System.out.print(" "+l);
+		                   System.out.print(" "+(l+ch));
+		                   System.out.println();
+		                  
+		                   break;
+		                    
+		                }
+		           }
+		         
+		    }
+		    }
+		    
+		   
+		}
+	}
+}
