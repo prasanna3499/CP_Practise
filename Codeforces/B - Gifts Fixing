@@ -1,0 +1,37 @@
+import java.util.*;
+public class B_GiftsFixing
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		for(int z=0;z<t;z++)
+		{
+		    int n=sc.nextInt();
+		    long min1=1000000000,min2=1000000000;
+		    long arr1[]=new long[n];
+		    long arr2[]=new long[n];
+		    long count=0;
+		    for(int i=0;i<n;i++)
+		    {
+		      arr1[i]=sc.nextLong();
+		      if(min1>arr1[i])
+		        min1=arr1[i];
+		    }
+		   
+		    for(int i=0;i<n;i++)
+		    {
+		        arr2[i]=sc.nextLong();
+		        if(min2>arr2[i])
+		          min2=arr2[i];
+		    }
+		    for(int i=0;i<n;i++)
+		    {
+		        long a=arr1[i]-min1;
+		        long b=arr2[i]-min2;
+		        count+=Math.max(a,b);
+		    }
+		    System.out.println(count);
+		}
+		
+	}
+}
