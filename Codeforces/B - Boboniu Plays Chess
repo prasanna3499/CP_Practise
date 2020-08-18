@@ -1,0 +1,46 @@
+import java.util.*;
+public class B662 {
+ 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner sc=new Scanner(System.in);
+        int r=sc.nextInt();
+        int c=sc.nextInt();
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        int t1=y;
+        while(t1>0) {
+        	System.out.println(x+" "+t1);
+        	t1--;
+        }
+         t1=y+1;
+        while(t1<=c){
+        	System.out.println(x+" "+t1);
+        	t1++;
+        }
+        t1=r;
+        int t2=c;
+        int flag=0;
+        while(t1>0 && t2>0  )
+        {
+        	if(t1==x)
+        	   t1--;
+        	if(flag==0)
+        	{
+        		for(int i=c;i>=1;i--)
+        			System.out.println(t1+" "+i);
+        		t1--;
+        		flag=1;
+        	}
+        	else
+        	{
+        		for(int j=1;j<=c;j++)
+        			System.out.println(t1+" "+j);
+        		t1--;
+        		flag=0;
+        	}
+        	
+        }
+	}
+ 
+}
