@@ -1,0 +1,75 @@
+package video10;
+
+import java.util.*;
+
+public class Deletion {
+        
+	static Node head;
+	static class Node
+	{
+		int data;
+		Node next;
+		Node(int d)
+		{
+			data=d;
+			next=null;
+		}
+	}
+	
+	static void delete(int d)
+	{
+		if(head==null)
+			return;
+		else
+		{
+			Node temp=head;
+			
+			while(temp.next!=null && temp.next.data!=d)
+				temp=temp.next;
+			if(temp.next!=null)
+			temp.next=temp.next.next;
+		}
+			
+	}
+	
+	static void pushend(int d)
+	 {
+		 Node nd=new Node(d);
+		 if(head==null)
+			 head=nd;
+		 else
+		 {
+			 Node temp=head;
+			 while(temp.next!=null)
+				 temp=temp.next;
+			 temp.next=nd;
+		 }
+	 }
+    
+	 static void prin(Node head)
+	 {
+	   if(head==null)
+		   return;
+	   else
+	   {
+		   Node temp=head;
+		   while(temp!=null)
+		   {
+			   System.out.print(temp.data+" ");
+			   temp=temp.next;
+		   }
+		   System.out.println();
+	   }
+	 }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        pushend(40);
+        pushend(50);
+        pushend(60);
+        prin(head);
+        delete(70);
+        delete(60);
+        prin(head);
+	}
+
+}
