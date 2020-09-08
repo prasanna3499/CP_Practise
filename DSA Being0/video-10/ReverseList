@@ -1,0 +1,110 @@
+package video10;
+import java.util.*;
+
+public class ReverseList {
+	static class Node
+    {
+  	  int data;
+  	  Node next;
+  	  Node(int d)
+  	  {
+  		  data=d;
+  		  next=null;
+  	  }
+    }
+    
+    static Node push(Node head,int d)
+    {
+  	  
+  	  if(head==null )
+  	  {
+  		  head=new Node(d);
+  		  return head;
+  	  }
+  	  head.next=push(head.next,d);
+  		  return head;
+  	  
+    }
+    
+    static void prin(Node n)
+    {
+  	  if(n==null)
+  	  {
+  		  System.out.println();
+  		return;
+  	  }
+  	  System.out.print(n.data+"->");
+  	  prin(n.next);
+    }
+    
+    static void reverse(Node head)
+    {
+    	Node pre=head;
+    	Node back=null;
+    	while(head!=null)
+    	{
+    		Node front=head.next;
+    		head.next=back;
+    		back=head;
+    		head=front;
+    	}
+    	prin(back);
+    	
+    }
+    
+    static void reverseKNodes(Node head,int k)
+    {
+    	int ch=k;
+    	Node back=null,end=null,out=null;
+    	int x=1;
+    	while(head!=null)
+    	{
+    		if(ch>0)
+    		{
+    			Node fr=head.next;
+    			head.next=back;
+    			back=head;
+    			head=fr;		
+    			ch=ch-1;
+    		}
+    		else if(x==1)
+    		{
+    			 out=back;
+    			while(back.next!=null)
+    				back=back.next;
+    			end=back;
+    			back=null;
+    			ch=k;
+    			x=0;
+    		}
+    		else
+    		{
+    			end.next=back;
+    			while(end.next!=null)
+    				end=end.next;
+    			back=null;
+    			ch=k;
+    		}
+    	}
+    	end.next=back;
+    	prin(out);
+    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Node head=null;
+        head=push(head,10);
+        head=push(head,20);
+        head=push(head,30);
+        head=push(head,40);
+        head=push(head,50);
+        head=push(head,60);
+        head=push(head,70);
+        head=push(head,80);
+        head=push(head,90);
+        
+        reverse(head);
+       
+        reverseKNodes(head,2);
+	}
+
+}
