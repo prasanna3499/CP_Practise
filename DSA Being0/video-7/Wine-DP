@@ -1,0 +1,29 @@
+package video7;
+import java.util.*;
+public class WineDP {
+
+	static int wine(int arr[],int dp[][],int m,int i,int j,int y)
+	{
+	    if(i>j) return 0;
+	    if(i==j) return arr[i]*y;
+	    if(dp[i][j]!=0)
+	    	return dp[i][j];
+	    int left=(arr[i]*y)+wine(arr,dp,m,i+1,j,y+1);
+	    int right=(arr[j]*y)+wine(arr,dp,m,i,j-1,y+1);
+	    dp[i][j]=Math.max(left, right);
+	    return dp[i][j];
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int arr[]=new int[m];
+        int dp[][]=new int[m][m];
+        for(int i=0;i<m;i++)
+        	arr[i]=sc.nextInt();
+        int cost=wine(arr,dp,m,0,m-1,1);
+        System.out.println(cost);
+	}
+
+}
