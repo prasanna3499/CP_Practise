@@ -1,0 +1,74 @@
+package video10;
+
+ 
+public class Insertion {
+	static Node head;
+	static class Node
+	{
+		int data;
+		Node next;
+		Node(int data)
+		{
+			this.data=data;
+			next=null;
+		}
+	}
+	 static void push(int d)
+	 {
+		 Node nd=new Node(d);
+		 if(head==null)
+			 head=nd;
+		 else
+		 {
+			 
+			 nd.next=head;
+			 head=nd;
+		 }
+		 return ;
+	 }
+	 
+	 static void pushend(int d)
+	 {
+		 Node nd=new Node(d);
+		 if(head==null)
+			 head=nd;
+		 else
+		 {
+			 Node temp=head;
+			 while(temp.next!=null)
+				 temp=temp.next;
+			 temp.next=nd;
+		 }
+	 }
+     
+	 static void prin(Insertion ls)
+	 {
+	   if(ls==null)
+		   return;
+	   else
+	   {
+		   Node temp=head;
+		   while(temp!=null)
+		   {
+			   System.out.print(temp.data+" ");
+			   temp=temp.next;
+		   }
+		   
+	   }
+	 }
+	 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Insertion ls=new Insertion();
+        push(10);
+        push(20);
+        push(30);
+        prin(ls);
+        pushend(40);
+        pushend(50);
+        pushend(60);
+        prin(ls);
+        
+	}
+
+}
