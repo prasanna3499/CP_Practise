@@ -1,0 +1,28 @@
+package practise;
+import java.util.*;
+public class RatInMaze {
+    static boolean rat(int arr[][],int m,int n,int i,int j)
+    {
+        
+        if(i>=m || j>=n) return false;
+        if(arr[i][j]==0) return false;
+        if(i==m-1 && j==n-1) return true;
+        if(rat(arr,m,n,i+1,j))
+        	return true;
+        return rat(arr,m,n,i,j+1);
+    }
+    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        int[][] arr=new int[m][n];
+        for(int i=0;i<m;i++)
+        	for(int j=0;j<n;j++)
+        		 arr[i][j]=sc.nextInt();
+        boolean ans=rat(arr,m,n,0,0);
+        System.out.println(ans);
+	}
+
+}
