@@ -1,0 +1,56 @@
+package video10;
+import java.util.*;
+
+import video10.MiddleNode.Node;
+
+public class LoopInList {
+	
+    static class Node
+    {
+  	  int data;
+  	  Node next;
+  	  Node(int d)
+  	  {
+  		  data=d;
+  		  next=null;
+  	  }
+    }
+    
+    static Node push(Node head,int d)
+    {
+  	  
+  	  if(head==null )
+  	  {
+  		  head=new Node(d);
+  		  return head;
+  	  }
+  	  head.next=push(head.next,d);
+  		  return head;
+  	  
+    }
+    
+    static void loop(Node n)
+    {
+    	Node tp1=n,tp2=n;
+    	while(tp2.next.next!=null)
+    	{
+    		if(tp1.data==tp2.data)
+    		{
+    			System.out.println("Yes there is Loop from "+tp1.data);
+    			break;
+    		}
+    		tp1=tp1.next;
+    		tp2=tp2.next.next;
+    	}
+    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Node head=null;
+        head=push(head,10);
+        head=push(head,20);
+        head=push(head,30);
+        head=push(head,40);
+        loop(head);
+	}
+
+}
