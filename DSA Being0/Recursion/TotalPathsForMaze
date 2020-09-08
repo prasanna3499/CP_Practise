@@ -1,0 +1,25 @@
+package practise;
+import java.util.*;
+public class NoOfPathsInMaze {
+
+	static int paths(int arr[][],int m,int n,int i,int j)
+	{
+	  if(i>=m || j>=n) return 0;
+	  if(j==n-1 || i==m-1 ) return arr[i][j];
+	  if(i==m-1 && j==n-1) return 1;
+	  return paths(arr,m,n,i+1,j)+paths(arr,m,n,i,j+1);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        int arr[][]=new int[m][n];
+        for(int i=0;i<m;i++)
+        	for(int j=0;j<n;j++)
+        		arr[i][j]=sc.nextInt();
+        System.out.println(paths(arr,m,n,0,0));
+	}
+
+}
