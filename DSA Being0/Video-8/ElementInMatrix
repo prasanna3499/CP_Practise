@@ -1,0 +1,34 @@
+package video8;
+import java.util.*;
+public class MatrixSearch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        int arr[][]=new int[m][n];
+        for(int i=0;i<m;i++)
+        	for(int j=0;j<n;j++)
+        		arr[i][j]=sc.nextInt();
+        int x=sc.nextInt();
+        int i=m-1,j=0;
+        int row=-1,col=-1;
+        while(i>=0 && j>=0)
+        {
+        	if(arr[i][j]==x)
+        	{
+        		 row=i;
+        		 col=j;
+        		 break;
+        	}
+        	if(arr[i][j]>x)
+        		i--;
+        	if(arr[i][j]<x)
+        		j++;
+        	
+        }
+        System.out.println(row+"-->"+col);
+	}
+
+}
