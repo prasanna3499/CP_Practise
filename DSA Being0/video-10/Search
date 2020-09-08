@@ -1,0 +1,55 @@
+package video10;
+import java.util.*;
+
+import video10.Insertion.Node;
+public class Search {
+     static Node head;
+	static class Node
+	{
+		int data;
+		Node next;
+		Node(int d)
+		{
+			data =d;
+			next=null;
+		}
+	}
+	
+	static void pushend(int d)
+	 {
+		 Node nd=new Node(d);
+		 if(head==null)
+			 head=nd;
+		 else
+		 {
+			 Node temp=head;
+			 while(temp.next!=null)
+				 temp=temp.next;
+			 temp.next=nd;
+		 }
+	 }
+	
+	static void search(int d)
+	{
+		Node temp=head;
+		int i=0;
+		while(temp!=null)
+		{
+			if(temp.data==d)
+			{
+				System.out.println("Found in "+(i+1)+" Position");
+				return;
+			}
+			i++;
+			temp=temp.next;
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		pushend(40);
+        pushend(50);
+        pushend(60);
+        search(50);
+	}
+
+}
