@@ -1,0 +1,71 @@
+package video10;
+
+import video10.ReverseList.Node;
+
+public class ReverseNNodes {
+
+	static class Node
+    {
+  	  int data;
+  	  Node next;
+  	  Node(int d)
+  	  {
+  		  data=d;
+  		  next=null;
+  	  }
+    }
+    
+    static Node push(Node head,int d)
+    {
+  	  
+  	  if(head==null )
+  	  {
+  		  head=new Node(d);
+  		  return head;
+  	  }
+  	  head.next=push(head.next,d);
+  		  return head;
+  	  
+    }
+    
+    static void prin(Node n)
+    {
+  	  if(n==null)
+  	  {
+  		  System.out.println();
+  		return;
+  	  }
+  	  System.out.print(n.data+"->");
+  	  prin(n.next);
+    }
+    
+    static void reverseNNodes(Node head,int n)
+    {
+    	Node back=null,pre=head;
+    	while(pre!=null && n>0)
+    	{
+    		Node fr=pre.next;
+    		pre.next=back;
+    		back=pre;
+    		pre=fr;
+    		n=n-1;
+    	}
+    	head.next=pre;
+    	prin(back);
+    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Node head=null;
+        head=push(head,10);
+        head=push(head,20);
+        head=push(head,30);
+        head=push(head,40);
+        head=push(head,50);
+        head=push(head,60);
+        head=push(head,70);
+        head=push(head,80);
+        head=push(head,90);
+        reverseNNodes(head,5);
+	}
+
+}
