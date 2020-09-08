@@ -1,0 +1,74 @@
+package video10;
+import java.util.*;
+
+
+public class MiddleNode {
+	
+     static class Node
+     {
+   	  int data;
+   	  Node next;
+   	  Node(int d)
+   	  {
+   		  data=d;
+   		  next=null;
+   	  }
+     }
+     
+     static Node push(Node head,int d)
+     {
+   	  
+   	  if(head==null )
+   	  {
+   		  head=new Node(d);
+   		  return head;
+   	  }
+   	  head.next=push(head.next,d);
+   		  return head;
+   	  
+     }
+     
+     static void mid(Node n)
+     {
+    	 Node fs=n;
+    	 Node ss=n;
+    	 while(ss.next!=null)
+    	 {
+    		 if(ss.next.next==null)
+    			 break;
+    		 fs=fs.next;
+    		 ss=ss.next.next;
+    	 }
+    	 System.out.println("Middle is "+fs.data);
+     }
+     
+     static void lastKNode(Node n,int k)
+     {
+    	 Node temp=n;
+    	 int count=0;
+    	 while(temp!=null)
+    	 {
+    		 if(temp.next==null) {
+    			 count++;break;}
+    		 else
+    			 count+=2;
+    		 temp=temp.next.next;
+    	 }
+    	 System.out.println(count);
+    	 for(int i=1;i<=count-k;i++)
+    		 n=n.next;
+    	 System.out.println(n.data);
+     }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Node head=null;
+        head=push(head,10);
+        head=push(head,20);
+        head=push(head,30);
+        head=push(head,40);
+        mid(head);
+        lastKNode(head,2);
+
+	}
+
+}
