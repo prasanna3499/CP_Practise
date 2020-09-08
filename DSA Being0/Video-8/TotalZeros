@@ -1,0 +1,27 @@
+package video8;
+import java.util.*;
+public class TotalZeros {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner sc=new Scanner(System.in);
+        int len=sc.nextInt();
+        int arr[]=new int[len];
+        for(int i=0;i<len;i++)
+        	arr[i]=sc.nextInt();
+        int low=0,high=len-1,ct=0;
+        while(low<=high)
+        {
+        	int mid=(low+high)/2;
+        	if(arr[mid]!=0)
+        		high=mid-1;
+        	else
+        	{
+        		low=mid+1;
+        	    ct=Math.max(ct, mid);
+        	}
+        }
+        System.out.println(ct+1);
+	}
+
+}
