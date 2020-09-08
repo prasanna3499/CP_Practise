@@ -1,0 +1,29 @@
+
+package video7;
+import java.util.*;
+public class WineProblem {
+
+	static int wine(int arr[],int n,int i,int j,int y)
+	{
+	  if((i>j)) return 0;
+	  if(i==j) return arr[i]*y;
+	  int left=arr[i]*y;
+	  int right=arr[j]*y;
+	  
+		 int x=right+wine(arr,n,i,j-1,y+1);
+	     int z= left+wine(arr,n,i+1,j,y+1);
+	     return Math.max(x, z);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner sc=new Scanner(System.in);
+        int len=sc.nextInt();
+        int arr[]=new int[len];
+        for(int i=0;i<len;i++)
+        	arr[i]=sc.nextInt();
+        int cost=wine(arr,len,0,len-1,1);
+        System.out.println(cost);
+	}
+
+}
