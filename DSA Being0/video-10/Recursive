@@ -1,0 +1,70 @@
+package video10;
+import java.util.*;
+public class RecursionPrint {
+      static Node head;
+      static class Node
+      {
+    	  int data;
+    	  Node next;
+    	  Node(int d)
+    	  {
+    		  data=d;
+    		  next=null;
+    	  }
+      }
+      
+      static Node push(Node head,int d)
+      {
+    	  
+    	  if(head==null )
+    	  {
+    		  head=new Node(d);
+    		  return head;
+    	  }
+    	  head.next=push(head.next,d);
+    		  return head;
+    	  
+      }
+      
+      static void prin(Node n)
+      {
+    	  if(n==null)
+    	  {
+    		return;
+    	  }
+    	  System.out.println(n.data);
+    	  prin(n.next);
+      }
+      
+      static Node delet(Node n,int k)
+      {
+    	  if(n==null)
+    		  return null;
+    	  if(k<1)
+    		  return n;
+    	  if(k==1)
+    	  {
+    		  System.out.println("Deleted node is "+n.data);
+    		  
+    		  return n.next;
+    	  }
+    	  
+    	  n.next=delet(n.next,k-1);
+    	  return n;
+    	  
+      }
+      
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Node head=null;
+         head=push(head,10);
+         head=push(head,20);
+         head=push(head,30);
+         head=push(head,40);
+         prin(head);
+        head= delet(head,3);
+         prin(head);
+         
+	}
+
+}
