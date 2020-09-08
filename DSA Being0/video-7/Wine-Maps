@@ -1,0 +1,29 @@
+package video7;
+import java.util.*;
+public class WineMap {
+	static Map<String,Integer> mp=new HashMap<String,Integer>();
+     static int wine(int arr[],int m,int i,int j,int y)
+     {
+         if(i>j) return 0;
+         if(i==j) return y*arr[i];
+         String str=i+"#"+j;
+         if(mp.containsKey(str))
+        	 return mp.get(str);
+         int n=Math.max((arr[i]*y)+wine(arr,m,i+1,j,y+1),(arr[j]*y)+wine(arr,m,i,j-1,y+1));
+         mp.put(str, n);
+         return mp.get(str);
+     }
+     
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int arr[]=new int[m];
+       
+        for(int i=0;i<m;i++)
+        	arr[i]=sc.nextInt();
+        int cost=wine(arr,m,0,m-1,1);
+        System.out.println(cost);
+	}
+
+}
