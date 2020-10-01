@@ -1,0 +1,57 @@
+
+
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc=new Scanner(System.in);
+		long t=sc.nextLong();
+		while(sc.hasNext())
+		{
+		    long n=sc.nextLong();
+            long sum=(n*(n+1))/2;
+            if(sum%2!=0)
+              System.out.println("0");
+            
+            else
+            {
+            long ct=0,ct1=0;
+            sum=sum/2;
+            long low=n/2,high=n;
+            while(low<high)
+            {
+                long mid=(low+high)/2;
+                long l1=(mid*(mid+1))/2;
+        
+                if(l1<=sum)
+                   low=mid;
+                else
+                   high=mid;
+                if(low+1==high)
+                   break;
+            }
+             ct1=(high*(high-1))/2;
+             ct=n-high+1;
+             
+            if(ct1==sum)
+             {
+                 ct1=((n-ct)*((n-ct)-1))/2;
+                 
+                 ct=ct+(ct*(ct-1))/2;
+                 
+                 ct=ct+ct1;
+             }
+            System.out.println(ct);
+            }
+            
+		}
+	}
+}
