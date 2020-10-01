@@ -1,0 +1,41 @@
+
+import java.util.*;
+public class A665 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       Scanner sc=new Scanner(System.in);
+       int t=sc.nextInt();
+       for(int z=0;z<t;z++)
+       {
+    	   long x1=sc.nextLong();
+    	   long y1=sc.nextLong();
+    	   long z1=sc.nextLong();
+    	   long x=sc.nextLong();
+    	   long y2=sc.nextLong();
+    	   long z2=sc.nextLong();
+    	   long sum=0;
+    	   if(z1!=0 )
+    	   {
+    		   if(z1>y2)
+    		   {
+    			   sum=2*y2;
+    			   x1=x1+(z1-y2);
+    		   }
+    		   else
+    			   sum=2*z1;
+    	   }
+    	   if(z2!=0)
+    	   {
+    		  if(x1>=z2)
+    		  {}
+    		  else
+    			  sum=sum-(z2-x1)*2;
+    	   }
+    	   System.out.println(sum);
+    	
+    	   
+       }
+	}
+
+}
