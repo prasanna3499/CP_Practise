@@ -1,0 +1,66 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+import java.io.IOException;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		FastReader fs=new FastReader();
+		int t=fs.nextInt();
+		while(t-->0)
+		{
+		    int n=fs.nextInt();
+		    int x,flag=0;
+		    for(int i=1;i<=n;i++)
+		    {
+		        x=fs.nextInt();
+		        if(i/x>=1 && i%x==0)
+		          continue;
+		          else
+		          {
+		              flag=1;
+		          }
+		           
+		    }
+		    if(flag==0)
+		    System.out.println("YES");
+		    else
+		    System.out.println("NO");
+		}
+	}
+	
+	static class FastReader
+	{
+		BufferedReader br;
+		StringTokenizer st;
+		FastReader()
+		{
+			br=new BufferedReader(new InputStreamReader(System.in));
+		}
+		String next()
+		{
+			while(st==null || !st.hasMoreElements())
+			{
+				try {
+					st=new StringTokenizer(br.readLine());
+				}
+				catch(IOException e)
+				{
+					e.printStackTrace();
+				}
+			}
+			return st.nextToken();
+		}
+		int nextInt()
+		{
+			return Integer.parseInt(next());
+		}
+	}
+}
