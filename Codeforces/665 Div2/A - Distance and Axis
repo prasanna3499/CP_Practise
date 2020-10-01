@@ -1,0 +1,25 @@
+
+import java.util.*;
+public class A665 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       Scanner sc=new Scanner(System.in);
+       int t=sc.nextInt();
+       for(int z=0;z<t;z++)
+       {
+    	   int a=sc.nextInt();
+    	   int k=sc.nextInt();
+    	   if(a<k)
+    		   System.out.println(k-a);
+    	   else
+    	   {
+    		   if((a%2==0 && k%2==0) || (a%2==1 && k%2==1))
+    			   System.out.println("0");
+    		   else
+    			   System.out.println("1");
+    	   }
+       }
+	}
+
+}
