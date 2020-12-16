@@ -1,0 +1,36 @@
+/* IMPORTANT: Multiple classes and nested static classes are supported */
+
+
+ 
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        BufferedWriter b = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+         
+        int t=Integer.parseInt(br.readLine());
+        for(int z=0;z<t;z++)
+        {
+             String[] strs=br.readLine().split(" ");
+             String str=strs[0];
+             int m=Integer.parseInt(strs[1]);
+             int n=Integer.parseInt(strs[2]);
+             String sub=str.substring(m,n+1);
+             char ch[]=sub.toCharArray();
+             Arrays.sort(ch);
+             System.out.print(str.substring(0,m));
+              
+             for(int i=ch.length-1;i>=0;i--)
+               b.write(ch[i]);
+            b.flush();
+             System.out.print(str.substring(n+1));
+             System.out.println();
+
+        }            
+
+
+    }
+}
